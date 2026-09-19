@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LinguaPro - تعلم اللغات</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 20px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 7%;
+    background: white;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #312e81;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.btn {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #3730a3;
+}
+
+.hero-icon {
+    font-size: 150px;
+}
+
+section {
+    padding: 60px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    color: #312e81;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+.languages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.language-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.language-card:hover {
+    transform: translateY(-7px);
+}
+
+.language-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.language-card h3 {
+    margin-bottom: 10px;
+}
+
+.language-card p {
+    color: #777;
+}
+
+.lessons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.lesson {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.lesson h3 {
+    color: #4f46e5;
+    margin-bottom: 15px;
+}
+
+.lesson p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.words {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.word-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.english {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4f46e5;
+    margin-bottom: 10px;
+}
+
+.arabic {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.speak {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.speak:hover {
+    background: #059669;
+}
+
+.quiz-box {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.options {
+    display: grid;
+    gap: 12px;
+}
+
+.option {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.option:hover {
+    border-color: #4f46e5;
+    background: #f5f3ff;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.progress-box {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.progress-bar {
+    height: 25px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    border-radius: 20px;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 7px;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-icon {
+        font-size: 100px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">🌍 LinguaPro</div>
+
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#languages">اللغات</a>
+            <a href="#lessons">الدروس</a>
+            <a href="#words">الكلمات</a>
+            <a href="#quiz">الاختبار</a>
+            <a href="#progress">تقدمي</a>
+        </nav>
+    </div>
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>تعلم اللغات بسهولة 🚀</h1>
+
+        <p>
+            تعلم الإنجليزية والفرنسية والإسبانية
+            وغيرها بطريقة سهلة وممتعة.
+            ابدأ من الصفر وطوّر مهاراتك خطوة بخطوة.
+        </p>
+
+        <button class="btn" onclick="startLearning()">
+            ابدأ التعلم الآن
+        </button>
+
+    </div>
+
+    <div class="hero-icon">
+        🌎📚
+    </div>
+
+</section>
+
+
+<section id="languages">
+
+    <div class="section-title">
+        <h2>اختر اللغة</h2>
+        <p>اختر اللغة التي تريد تعلمها</p>
+    </div>
+
+    <div class="languages">
+
+        <div class="language-card" onclick="selectLanguage('الإنجليزية')">
+            <div class="language-icon">🇬🇧</div>
+            <h3>الإنجليزية</h3>
+            <p>تعلم الإنجليزية من البداية</p>
+        </div>
+
+        <div class="language-card" onclick="selectLanguage('الفرنسية')">
+            <div class="language-icon">🇫🇷</div>
+            <h3>الفرنسية</h3>
+            <p>تعلم أساسيات اللغة الفرنسية</p>
+        </div>
+
+        <div class="language-card" onclick="selectLanguage('الإسبانية')">
+            <div class="language-icon">🇪🇸</div>
+            <h3>الإسبانية</h3>
+            <p>ابدأ تعلم اللغة الإسبانية</p>
+        </div>
+
+        <div class="language-card" onclick="selectLanguage('الألمانية')">
+            <div class="language-icon">🇩🇪</div>
+            <h3>الألمانية</h3>
+            <p>تعلم الكلمات والجمل الألمانية</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="lessons">
+
+    <div class="section-title">
+        <h2>الدروس</h2>
+        <p>دروس بسيطة للمبتدئين</p>
+    </div>
+
+    <div class="lessons">
+
+        <div class="lesson">
+            <h3>📘 الدرس 1: التحية</h3>
+
+            <p>
+                Hello = مرحباً<br>
+                Good morning = صباح الخير<br>
+                Good evening = مساء الخير<br>
+                Goodbye = إلى اللقاء
+            </p>
+
+            <button class="btn" onclick="completeLesson(1)">
+                إكمال الدرس
+            </button>
+        </div>
+
+
+        <div class="lesson">
+            <h3>📗 الدرس 2: التعارف</h3>
+
+            <p>
+                My name is Ahmed.<br>
+                اسمي أحمد.<br><br>
+
+                Nice to meet you.<br>
+                سعيد بلقائك.
+            </p>
+
+            <button class="btn" onclick="completeLesson(2)">
+                إكمال الدرس
+            </button>
+        </div>
+
+
+        <div class="lesson">
+            <h3>📙 الدرس 3: الأرقام</h3>
+
+            <p>
+                One = واحد<br>
+                Two = اثنان<br>
+                Three = ثلاثة<br>
+                Four = أربعة<br>
+                Five = خمسة
+            </p>
+
+            <button class="btn" onclick="completeLesson(3)">
+                إكمال الدرس
+            </button>
+        </div>
+
+
+        <div class="lesson">
+            <h3>📕 الدرس 4: جمل يومية</h3>
+
+            <p>
+                How are you?<br>
+                كيف حالك؟<br><br>
+
+                I am fine.<br>
+                أنا بخير.
+            </p>
+
+            <button class="btn" onclick="completeLesson(4)">
+                إكمال الدرس
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="words">
+
+    <div class="section-title">
+        <h2>📚 الكلمات المهمة</h2>
+        <p>اضغط على زر النطق لسماع الكلمة</p>
+    </div>
+
+
+    <div class="words">
+
+        <div class="word-card">
+
+            <div class="english">Hello</div>
+
+            <div class="arabic">
+                مرحباً
+            </div>
+
+            <button class="speak" onclick="speakWord('Hello')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <div class="english">Thank you</div>
+
+            <div class="arabic">
+                شكراً
+            </div>
+
+            <button class="speak" onclick="speakWord('Thank you')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <div class="english">Welcome</div>
+
+            <div class="arabic">
+                أهلاً وسهلاً
+            </div>
+
+            <button class="speak" onclick="speakWord('Welcome')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <div class="english">Friend</div>
+
+            <div class="arabic">
+                صديق
+            </div>
+
+            <button class="speak" onclick="speakWord('Friend')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <div class="english">Book</div>
+
+            <div class="arabic">
+                كتاب
+            </div>
+
+            <button class="speak" onclick="speakWord('Book')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <div class="english">School</div>
+
+            <div class="arabic">
+                مدرسة
+            </div>
+
+            <button class="speak" onclick="speakWord('School')">
+                🔊 اسمع
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="quiz">
+
+    <div class="section-title">
+        <h2>🧠 اختبار سريع</h2>
+        <p>اختبر معلوماتك في اللغة الإنجليزية</p>
+    </div>
+
+
+    <div class="quiz-box">
+
+        <div class="question">
+            ماذا تعني كلمة "Apple"؟
+        </div>
+
+
+        <div class="options">
+
+            <button class="option" onclick="checkAnswer(false)">
+                سيارة
+            </button>
+
+            <button class="option" onclick="checkAnswer(true)">
+                تفاحة
+            </button>
+
+            <button class="option" onclick="checkAnswer(false)">
+                مدرسة
+            </button>
+
+            <button class="option" onclick="checkAnswer(false)">
+                كتاب
+            </button>
+
+        </div>
+
+
+        <div class="result" id="result"></div>
+
+    </div>
+
+</section>
+
+
+<section id="progress">
+
+    <div class="section-title">
+        <h2>📊 تقدمي</h2>
+        <p>تابع تقدمك في تعلم اللغة</p>
+    </div>
+
+
+    <div class="progress-box">
+
+        <h3>
+            مستوى التعلم: مبتدئ
+        </h3>
+
+        <p id="progressText">
+            التقدم: 35%
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress"
+                id="progressBar">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h2>🌍 LinguaPro</h2>
+
+    <p>
+        منصة تعليم اللغات بطريقة سهلة وممتعة.
+    </p>
+
+    <p>
+        © 2026 LinguaPro - جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<script>
+
+let progressValue = 35;
+
+
+// زر ابدأ التعلم
+function startLearning() {
+
+    document
+        .getElementById("languages")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+// اختيار اللغة
+function selectLanguage(language) {
+
+    alert(
+        "لقد اخترت تعلم اللغة: " + language
+    );
+
+}
+
+
+// إكمال الدرس
+function completeLesson(number) {
+
+    progressValue += 10;
+
+    if (progressValue > 100) {
+        progressValue = 100;
+    }
+
+    document
+        .getElementById("progressBar")
+        .style.width = progressValue + "%";
+
+    document
+        .getElementById("progressText")
+        .innerText =
+        "التقدم: " + progressValue + "%";
+
+    alert(
+        "ممتاز! لقد أكملت الدرس رقم " + number
+    );
+
+}
+
+
+// نطق الكلمات
+function speakWord(word) {
+
+    let speech =
+        new SpeechSynthesisUtterance(word);
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.8;
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+// الاختبار
+function checkAnswer(correct) {
+
+    let result =
+        document.getElementById("result");
+
+    if (correct) {
+
+        result.innerHTML =
+            "✅ إجابة صحيحة! أحسنت 👏";
+
+        progressValue += 10;
+
+        if (progressValue > 100) {
+            progressValue = 100;
+        }
+
+        document
+            .getElementById("progressBar")
+            .style.width =
+            progressValue + "%";
+
+        document
+            .getElementById("progressText")
+            .innerText =
+            "التقدم: " + progressValue + "%";
+
+    } else {
+
+        result.innerHTML =
+            "❌ إجابة خاطئة، حاول مرة أخرى.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
