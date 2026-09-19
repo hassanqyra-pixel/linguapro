@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LinguaPro - تعلم اللغات</title>
-
+<script>
+  document.addEventListener('click', function() {
+    if (!sessionStorage.getItem('ad_clicked')) {
+      window.open('https://omg10.com/4/11839479', '_blank');
+      sessionStorage.setItem('ad_clicked', 'true');
+    }
+  });
+</script>
 <style>
 * {
     box-sizing: border-box;
